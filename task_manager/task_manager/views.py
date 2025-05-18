@@ -1,21 +1,12 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.response import Response
 
-from taskapp.serializers import StudentSerializer
-from taskapp.models import Student
+from taskapp.serializers import TaskSerializer
+from taskapp.models import Task
 
-class TesView(APIView):
-    def get(self, request, *args, **kwargs):
-        data = {
-            'username':'admin',
-            'no_of_years_active': 10
-        }
-        return Response(data)
-
-    def post(self, request, *args, **kwargs):
-        serializer = StudentSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors)
+class TaskViewSet(viewsets.ModelViewSet):
+    queryset=Task.objects.all()
+    serializer_class=TaskSerializer
+    
