@@ -15,4 +15,14 @@ class Task(models.Model):
     
     def __str__(self):
         return self.name
+    
+class TaskChangeLog(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE,related_name='change_logs')
+    change_date=models.DateTimeField(auto_now_add=True)
+    old_data=models.JSONField()
+    new_data=models.JSONField()
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    
+    def __str__(self):
+        return f"Task {self.task.id} changed at {self.change_date}"
 
