@@ -61,4 +61,4 @@ class TaskViewSet(viewsets.ModelViewSet):
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
-# Create your views here.
+
