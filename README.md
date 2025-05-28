@@ -1,2 +1,2 @@
 # MGA-project
-Django/Python project for mga application
+Django/Python/Rest_Framework project for mga application
