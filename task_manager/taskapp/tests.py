@@ -56,12 +56,13 @@ def test_assigned_user_can_edit_task():
     client.force_authenticate(user=assign)
 
     response = client.patch(f"/api/tasks/{task.id}/", {
-        "status": "W_toku"
+    "status": "W toku",
+    "assigned_user": assign.id
     }, format='json')
 
     assert response.status_code == 200
     task.refresh_from_db()
-    assert task.status == "W_toku"
+    assert task.status == "W toku"
 
 # sprawdzenie czy po edycji zadanie jest wpis do historii
 @pytest.mark.django_db
@@ -77,14 +78,15 @@ def test_task_log_changed_on_update():
     task_id = response.data["id"]
 
     client.patch(f"/api/tasks/{task_id}/", {
-        "status": "W_toku"
+    "status": "W toku",
     }, format='json')
+
 
     history_response = client.get(f"/api/tasks/{task_id}/history/")
     assert history_response.status_code == 200
     assert len(history_response.data) == 1
     assert history_response.data[0]["old_data"]["status"] == "Nowy"
-    assert history_response.data[0]["new_data"]["status"] == "W_toku"
+    assert history_response.data[0]["new_data"]["status"] == "W toku"
     
 # sprawdzenie czy niezalogowany uzytkwonik moze zrobic zadanie 
 @pytest.mark.django_db

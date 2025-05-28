@@ -7,7 +7,7 @@ class Task(models.Model):
     description = models.TextField(blank=True)
     STATUS_CHOICES = [
         ('Nowy', 'Nowy'),
-        ('W_toku', 'W_toku'),
+        ('W toku', 'W toku'),
         ('Rozwiązany', 'Rozwiązany'),
     ]
     status=models.CharField(max_length=50,choices=STATUS_CHOICES,default='Nowy')
