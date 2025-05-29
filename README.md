@@ -10,7 +10,7 @@ Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Djan
 - Docker Compose
 
 ### Klonowanie Repozytorium:
-- git clone https://github.com/SUSEK228/MGA-project.git
+- git clone ```https://github.com/SUSEK228/MGA-project.git```
 - cd mga-project/task_manager
 
 ### Budowanie i Uruchamianie kontenerów:
@@ -25,30 +25,30 @@ Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Djan
 - docker-compose exec web python manage.py createsuperuser
 
 ### Sprawdzenie działania
-- http://localhost:8000/api/
+- ```http://localhost:8000/api/```
 
 ## Sposób użycia aplikacji:
 - Aplikację można używać za pomocą przeglądarki internetowej.
-- Po uruchomieniu serwera aplikacji, interfejs API dostępny jest pod adresem: http://localhost:8000/
+- Po uruchomieniu serwera aplikacji, interfejs API dostępny jest pod adresem: ```http://localhost:8000/```
 ### Używając curl
 #### Rejestracja i logowanie 
-- curl -X POST "http://localhost:8000/api/register/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"
+- ```curl -X POST "http://localhost:8000/api/register/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"```
 #### Logowanie (JWT)
-- curl -X POST "http://localhost:8000/api/token/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"
+- ```curl -X POST "http://localhost:8000/api/token/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"```
 #### Odświeżenie tokena
-- curl -X POST "http://localhost:8000/api/token/refresh/" -H "Content-Type: application/json" -d "{\"refresh\": \"<REFRESH_TOKEN>\"}"
+- ```curl -X POST "http://localhost:8000/api/token/refresh/" -H "Content-Type: application/json" -d "{\"refresh\": \"<REFRESH_TOKEN>\"}"```
 #### pobranie listy zadań
-- curl -X GET "http://localhost:8000/api/tasks/" -H "Authorization: Bearer <TOKEN>"
+- ```curl -X GET "http://localhost:8000/api/tasks/" -H "Authorization: Bearer <TOKEN>"```
 #### Filtrowanie po statusie
-- curl -X GET "http://localhost:8000/api/tasks/?status=Nowy" -H "Authorization: Bearer <TOKEN>"
+- ```curl -X GET "http://localhost:8000/api/tasks/?status=Nowy" -H "Authorization: Bearer <TOKEN>"```
 #### Dodanie zadania
-- curl -X POST "http://localhost:8000/api/tasks/" -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d "{\"name\": \"Zadanie testowe\", \"status\": \"Nowy\"}"
+- ```curl -X POST "http://localhost:8000/api/tasks/" -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d "{\"name\": \"Zadanie testowe\", \"status\": \"Nowy\"}"```
 #### edycja zadania (przykładowo zadanie o id 1)
-- curl -X PATCH "http://localhost:8000/api/tasks/1/" -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d "{\"status\": \"W_toku\"}"
+- ```curl -X PATCH "http://localhost:8000/api/tasks/1/" -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d "{\"status\": \"W toku\"}"```
 #### usunięcie zadania (przykładowo zadanie o id 1)
-- curl -X DELETE "http://localhost:8000/api/tasks/1/" -H "Authorization: Bearer <TOKEN>"
+- ```curl -X DELETE "http://localhost:8000/api/tasks/1/" -H "Authorization: Bearer <TOKEN>"```
 #### Historia zmian zadania (przykładowo zadanie o id 1)
-- curl -X GET "http://localhost:8000/api/tasks/1/history/" -H "Authorization: Bearer <TOKEN>"
+- ```curl -X GET "http://localhost:8000/api/tasks/1/history/" -H "Authorization: Bearer <TOKEN>"```
 
 ## System uprawnień
 Tworzenie/Edycja/Usuwanie możliwa tylko dla
