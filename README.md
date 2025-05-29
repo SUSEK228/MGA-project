@@ -12,17 +12,19 @@ Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Djan
 - Gunicorn (serwer WSGI)
 
 ## Struktura projektu
+```
 MGA-project/
-├── README.md                  # Dokumentacja projektu
-├── task_manager/              # Główna aplikacja Django
-│   ├── manage.py              # Główny plik do uruchamiania
-│   ├── Dockerfile             # Konfiguracja kontenera web
-│   ├── docker-compose.yml     # Kompozycja usług (web + db)
-│   ├── requirements.txt       # Wymagane zależności
-│   ├── pytest.ini             # Konfiguracja pytest
-│   ├── staticfiles/           # Zebrane pliki statyczne
-│   ├── task_manager/          # Konfiguracja projektu Django
-│   └── taskapp/               # Logika aplikacji zadań (models, views, serializers, urls, tests)
+├── README.md                 # Plik dokumentacji projektu
+├── task_manager/             # Główna aplikacja Django
+│   ├── manage.py             # Główny plik uruchamiający Django
+│   ├── Dockerfile            # Konfiguracja kontenera aplikacji
+│   ├── docker-compose.yml    # Konfiguracja usług (Django + Postgres)
+│   ├── requirements.txt      # Lista zależności Pythona
+│   ├── pytest.ini            # Konfiguracja dla pytest
+│   ├── staticfiles/          # Zebrane pliki statyczne
+│   ├── task_manager/         # Konfiguracja projektu Django (settings, urls)
+│   └── taskapp/              # Aplikacja do zarządzania zadaniami (models, views, serializers, tests)
+```
 
 ## Instrukcja uruchomienia aplikacji
 
