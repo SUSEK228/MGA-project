@@ -1,4 +1,4 @@
-# MGA-project Task Manager
+# Task Manager – Projekt MGA
 
 ## Opis Projektu
 Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Django 5.2.1 z wykorzystaniem Django REST Framework oraz PostgreSQL. Umożliwia rejestrację użytkowników, uwierzytelnianie JWT, przydzielanie i edycję zadań, kontrolę uprawnień oraz śledzenie historii zmian.
@@ -9,6 +9,20 @@ Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Djan
 - PostgreSQL
 - JWT (JSON Web Token)
 - Docker / Docker Compose
+- Gunicorn (serwer WSGI)
+
+## Struktura projektu
+MGA-project/
+├── README.md                  # Dokumentacja projektu
+├── task_manager/              # Główna aplikacja Django
+│   ├── manage.py              # Główny plik do uruchamiania
+│   ├── Dockerfile             # Konfiguracja kontenera web
+│   ├── docker-compose.yml     # Kompozycja usług (web + db)
+│   ├── requirements.txt       # Wymagane zależności
+│   ├── pytest.ini             # Konfiguracja pytest
+│   ├── staticfiles/           # Zebrane pliki statyczne
+│   ├── task_manager/          # Konfiguracja projektu Django
+│   └── taskapp/               # Logika aplikacji zadań (models, views, serializers, urls, tests)
 
 ## Instrukcja uruchomienia aplikacji
 
@@ -84,8 +98,6 @@ Osoby niezalogowane mogą jedynie przeglądać listę zadań.
 ## Testowanie
 Testy są uruchamiane przez komendę:
 - ```docker-compose exec web pytest```
-
-## Dodatkowe Informacje
 
 ## Autor
 Paweł Kulesza
