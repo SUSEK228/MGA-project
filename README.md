@@ -30,24 +30,24 @@ http://localhost:8000/api/
 ## Sposób użycia aplikacji:
 Aplikację można używać przy pomocy przeglądarki 
 ### Używając curl
-- Rejestracja i logowanie 
-curl -X POST "http://localhost:8000/api/register/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"
-- Logowanie (JWT)
-curl -X POST "http://localhost:8000/api/token/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"
-- Odświeżenie tokena
-curl -X POST "http://localhost:8000/api/token/refresh/" -H "Content-Type: application/json" -d "{\"refresh\": \"<REFRESH_TOKEN>\"}"
-- pobranie listy zadań
-curl -X GET "http://localhost:8000/api/tasks/" -H "Authorization: Bearer <TOKEN>"
-- Filtrowanie po statusie
-curl -X GET "http://localhost:8000/api/tasks/?status=Nowy" -H "Authorization: Bearer <TOKEN>"
-- Dodanie zadania
-curl -X POST "http://localhost:8000/api/tasks/" -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d "{\"name\": \"Zadanie testowe\", \"status\": \"Nowy\"}"
-- edycja zadania (przykładowo zadanie o id 1)
-curl -X PATCH "http://localhost:8000/api/tasks/1/" -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d "{\"status\": \"W_toku\"}"
-- usunięcie zadania (przykładowo zadanie o id 1)
-curl -X DELETE "http://localhost:8000/api/tasks/1/" -H "Authorization: Bearer <TOKEN>"
-- Historia zmian zadania (przykładowo zadanie o id 1)
-curl -X GET "http://localhost:8000/api/tasks/1/history/" -H "Authorization: Bearer <TOKEN>"
+#### Rejestracja i logowanie 
+- curl -X POST "http://localhost:8000/api/register/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"
+#### Logowanie (JWT)
+- curl -X POST "http://localhost:8000/api/token/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"
+#### Odświeżenie tokena
+- curl -X POST "http://localhost:8000/api/token/refresh/" -H "Content-Type: application/json" -d "{\"refresh\": \"<REFRESH_TOKEN>\"}"
+#### pobranie listy zadań
+- curl -X GET "http://localhost:8000/api/tasks/" -H "Authorization: Bearer <TOKEN>"
+#### Filtrowanie po statusie
+- curl -X GET "http://localhost:8000/api/tasks/?status=Nowy" -H "Authorization: Bearer <TOKEN>"
+#### Dodanie zadania
+- curl -X POST "http://localhost:8000/api/tasks/" -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d "{\"name\": \"Zadanie testowe\", \"status\": \"Nowy\"}"
+#### edycja zadania (przykładowo zadanie o id 1)
+- curl -X PATCH "http://localhost:8000/api/tasks/1/" -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d "{\"status\": \"W_toku\"}"
+#### usunięcie zadania (przykładowo zadanie o id 1)
+- curl -X DELETE "http://localhost:8000/api/tasks/1/" -H "Authorization: Bearer <TOKEN>"
+#### Historia zmian zadania (przykładowo zadanie o id 1)
+- curl -X GET "http://localhost:8000/api/tasks/1/history/" -H "Authorization: Bearer <TOKEN>"
 
 ## System uprawnień
 Tworzenie/Edycja/Usuwanie możliwa tylko dla
