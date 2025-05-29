@@ -31,6 +31,8 @@ Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Djan
 - Aplikację można używać za pomocą przeglądarki internetowej.
 - Po uruchomieniu serwera aplikacji, interfejs API dostępny jest pod adresem: ```http://localhost:8000/```
 ### Używając curl
+*można uruchomić w CMD/Powershell lub w terminalu VS Code*
+
 #### Rejestracja i logowanie 
 - ```curl -X POST "http://localhost:8000/api/register/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"```
 #### Logowanie (JWT)
