@@ -14,15 +14,15 @@ Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Djan
 - cd mga-project/task_manager
 
 ### Budowanie i Uruchamianie kontenerów:
-- docker-compose build
-- docker-compose up -d 
+- ```docker-compose build```
+- ```docker-compose up -d ```
 
 ### Migracje bazy danych
-- docker-compose exec web python manage.py makemigrations
-- docker-compose exec web python manage.py migrate
+- ```docker-compose exec web python manage.py makemigrations```
+- ```docker-compose exec web python manage.py migrate```
 
 ### Tworzenie superużytkownika
-- docker-compose exec web python manage.py createsuperuser
+- ```docker-compose exec web python manage.py createsuperuser```
 
 ### Sprawdzenie działania
 - ```http://localhost:8000/api/```
@@ -58,7 +58,7 @@ Tworzenie/Edycja/Usuwanie możliwa tylko dla
 
 ## Testowanie
 Testy są uruchamiane przez komendę:
-- docker-compose exec web pytest
+- ```docker-compose exec web pytest```
 
 ## Dodatkowe Informacje
 
