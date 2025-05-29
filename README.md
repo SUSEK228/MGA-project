@@ -3,6 +3,13 @@
 ## Opis Projektu
 Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Django 5.2.1 z wykorzystaniem Django REST Framework oraz PostgreSQL. Umożliwia rejestrację użytkowników, uwierzytelnianie JWT, przydzielanie i edycję zadań, kontrolę uprawnień oraz śledzenie historii zmian.
 
+## Technologie
+- Django 5.2.1
+- Django REST Framework
+- PostgreSQL
+- JWT (JSON Web Token)
+- Docker / Docker Compose
+
 ## Instrukcja uruchomienia aplikacji
 
 ### Wymagane:
@@ -31,7 +38,7 @@ Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Djan
 - Aplikację można używać za pomocą przeglądarki internetowej.
 - Po uruchomieniu serwera aplikacji, interfejs API dostępny jest pod adresem: ```http://localhost:8000/```
 ### Używając curl
-*można uruchomić w CMD/Powershell lub w terminalu VS Code*
+*Komendy można uruchomić w CMD/Powershell lub w terminalu VS Code*
 
 #### Rejestracja i logowanie 
 - ```curl -X POST "http://localhost:8000/api/register/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"```
@@ -52,11 +59,27 @@ Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Djan
 #### Historia zmian zadania (przykładowo zadanie o id 1)
 - ```curl -X GET "http://localhost:8000/api/tasks/1/history/" -H "Authorization: Bearer <TOKEN>"```
 
+## Endpointy API 
+- `POST /api/register/` – rejestracja
+- `POST /api/token/` – logowanie (JWT)
+- `POST /api/token/refresh/` – odświeżenie tokena
+- `GET /api/tasks/` – lista zadań
+- `GET /api/tasks/?status=Nowy` – filtrowanie zadań po statusie (w przykładzie filtrowanie po Nowy)
+- `POST /api/tasks/` – tworzenie zadania
+- `PATCH /api/tasks/<id>/` – edycja zadania
+- `DELETE /api/tasks/<id>/` – usunięcie zadania
+- `GET /api/tasks/<id>/history/` – historia zmian zadania
+
 ## System uprawnień
 Tworzenie/Edycja/Usuwanie możliwa tylko dla
 - autora (created_by)
 - przypisanego użytkownika (assigned_user)
 - administratora (is_staff)
+
+Przykład:
+- Użytkownik 1 tworzy zadanie i przypisuje do niego użytkownika 2. Zadanie może edytować tylko użytkownik 1, 2 lub administrator.
+Każdy użytkownik może tworzyć zadania, ale edytować i usuwać tylko te, które stworzył lub do których został przypisany.
+Osoby niezalogowane mogą jedynie przeglądać listę zadań.
 
 ## Testowanie
 Testy są uruchamiane przez komendę:
