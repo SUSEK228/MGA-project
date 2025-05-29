@@ -10,25 +10,26 @@ Task Manager to aplikacja webowa do zarządzania zadaniami. Jest napisana w Djan
 - Docker Compose
 
 ### Klonowanie Repozytorium:
-git clone https://github.com/SUSEK228/MGA-project.git
-cd mga-project/task_manager
+- git clone https://github.com/SUSEK228/MGA-project.git
+- cd mga-project/task_manager
 
 ### Budowanie i Uruchamianie kontenerów:
-docker-compose build
-docker-compose up -d 
+- docker-compose build
+- docker-compose up -d 
 
 ### Migracje bazy danych
-docker-compose exec web python manage.py makemigrations
-docker-compose exec web python manage.py migrate
+- docker-compose exec web python manage.py makemigrations
+- docker-compose exec web python manage.py migrate
 
 ### Tworzenie superużytkownika
-docker-compose exec web python manage.py createsuperuser
+- docker-compose exec web python manage.py createsuperuser
 
 ### Sprawdzenie działania
-http://localhost:8000/api/
+- http://localhost:8000/api/
 
 ## Sposób użycia aplikacji:
-Aplikację można używać przy pomocy przeglądarki 
+- Aplikację można używać za pomocą przeglądarki internetowej.
+- Po uruchomieniu serwera aplikacji, interfejs API dostępny jest pod adresem: http://localhost:8000/
 ### Używając curl
 #### Rejestracja i logowanie 
 - curl -X POST "http://localhost:8000/api/register/" -H "Content-Type: application/json" -d "{\"username\": \"uzytkownik\", \"password\": \"haslo\"}"
